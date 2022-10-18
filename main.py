@@ -1,6 +1,7 @@
 # coding=utf-8
 
 import os
+import time
 
 path = input('输入FCP7XML文件（.xml)路径')
 export_path = os.path.split(path)[0]+'\\'+os.path.splitext(os.path.split(path)[1])[0]+'.txt'
@@ -50,7 +51,7 @@ def screening_of_repeat():
                 pass
             elif i not in data_list_2:
                 data_list_2.append(i)
-                print(data_list_2)
+                # print(data_list_2)
     # print(data_list_2)
 
 
@@ -71,10 +72,11 @@ def print_hi(name):
 if __name__ == '__main__':
     read_xml()
     print('data1', len(data_list))
-    print(data_list_2)
     screening_of_repeat()
     print('data2', len(data_list_2))
     print(data_list_2)
     write_text()
-    print('v0.1.3')
+    print('当前版本v0.1.4')
     print(f'0.1版本是简单匹配，输出列表中将不包含没有英文句号的内容（请不要在文件名中使用英文句号），同时也不包含{rule_out}等格式')
+    print('导出完成，五秒后自动退出')
+    time.sleep(5)
