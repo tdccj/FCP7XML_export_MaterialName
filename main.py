@@ -76,5 +76,5 @@ if __name__ == '__main__':
     print('data2', len(data_list_2))
     print(data_list_2)
     write_text()
-    print('v0.1')
+    print('v0.1.3')
     print(f'0.1版本是简单匹配，输出列表中将不包含没有英文句号的内容（请不要在文件名中使用英文句号），同时也不包含{rule_out}等格式')
