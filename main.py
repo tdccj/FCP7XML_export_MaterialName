@@ -2,8 +2,9 @@
 
 import os
 
-path = r'Z:\临时文件\Timeline 1.xml'
-export_path = r'Z:\临时文件\Timeline 1.txt'
+path = input('输入FCP7XML文件（.xml)路径')
+export_path = os.path.split(path)[0]+'\\'+os.path.splitext(os.path.split(path)[1])[0]+'.txt'
+print(export_path)
 data_list = []
 data_list_2 = []
 rule_out = ['.m4a', '.png', '.jpg']
@@ -30,30 +31,26 @@ def read_xml():
     return data_list
 
 
+# 用以筛选重复和不需要的文件名
 def screening_of_repeat():
     global data_list_2
     for i in data_list:
         # 剔除合成片段
-        format = os.path.splitext(i)[-1]
-        format = format.strip() # 以去除空格
-        if i.find('.') == -1:
-
+        i = i.strip()   # 删除空格！！！
+        format_i = os.path.splitext(i)[-1]  #提取后缀
+        if i.find('.') == -1:   # 剔除合成
             pass
 
-        elif format in rule_out:
-            print(1)
-            # print(i)
-            # # 排除重复
-            print(i)
+        elif format_i in rule_out:  # 剔除特定格式
             pass
 
         else:
-            # print(2)
+            # 剔除重复的
             if i in data_list_2:
                 pass
             elif i not in data_list_2:
                 data_list_2.append(i)
-            print(data_list_2)
+                print(data_list_2)
     # print(data_list_2)
 
 
