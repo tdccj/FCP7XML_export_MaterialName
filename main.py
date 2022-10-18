@@ -33,25 +33,28 @@ def read_xml():
 def screening_of_repeat():
     global data_list_2
     for i in data_list:
-        # 剔除某些内容
-        if i.find('.') == -1 or os.path.splitext(i)[-1] in rule_out:
-            # print(0)
+        # 剔除合成片段
+        format = os.path.splitext(i)[-1]
+        format = format.strip() # 以去除空格
+        if i.find('.') == -1:
+
             pass
-        elif os.path.splitext(i)[-1] in rule_out:
-            print(os.path.splitext(i)[-1])
-            print(i)
+
+        elif format in rule_out:
             print(1)
-            pass
-        else:
             # print(i)
             # # 排除重复
+            print(i)
+            pass
+
+        else:
             # print(2)
             if i in data_list_2:
                 pass
             elif i not in data_list_2:
                 data_list_2.append(i)
             print(data_list_2)
-    print(data_list_2)
+    # print(data_list_2)
 
 
 def write_text():
