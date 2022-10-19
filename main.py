@@ -3,9 +3,8 @@
 import os
 import time
 
-path = input('输入FCP7XML文件（.xml)路径（包含文件名及格式')
-export_path = os.path.split(path)[0]+'\\'+os.path.splitext(os.path.split(path)[1])[0]+'.txt'
-print(export_path)
+path = 'path'
+export_path = 'path'
 data_list = []
 data_list_2 = []
 rule_out = ['.m4a', '.png', '.jpg']
@@ -74,6 +73,11 @@ if __name__ == '__main__':
     print(f'0.1版本是简单匹配，输出列表中将不包含没有英文句号的内容（请不要在文件名中使用英文句号），同时也不包含{rule_out}等格式')
     print('请不要在素材文件名中使用‘.’和‘<’‘>’，要不然会得到意外的结果')
     print('如果配音不是m4a格式，需要在导出后手动删除(换句话说如果有素材是m4a格式，需要手动添加，或等待版本更新白名单机制')
+
+    path = input('输入FCP7XML文件（.xml)路径（包含文件名及格式')
+    export_path = os.path.split(path)[0] + '\\' + os.path.splitext(os.path.split(path)[1])[0] + '.txt'
+    print(export_path)
+
     read_xml()
     print('data1', len(data_list))
     screening_of_repeat()
